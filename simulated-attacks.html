@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SENS Cybersecurity Attacks</title>
+  <link rel="stylesheet" href="try-now.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <button class="home-btn" onclick="window.location.href = '/index.html';">Go to Home</button>
+  <main>
+    <section id="intro">
+      <div class="intro-content">
+        <h1>Explore Cybersecurity Attack Types</h1>
+        <p>
+          These traps set up to simulate vulnerabilities, allowing us to understand how attackers exploit different techniques. Try out different attack simulations to learn how they work.
+        </p>
+      </div>
+    </section>
+
+    <section id="cards" class="cards-container">
+      <div class="card">
+        <img src="phishing.png" alt="Phishing" class="card-img">
+        <div class="card-content">
+          <h3>Phishing Attack</h3>
+          <p>Phishing attacks trick users into revealing sensitive information like usernames and passwords by pretending to be trustworthy sources. Learn how attackers perform these attacks.</p>
+          <a href="phishing.html">Try Phishing Attack</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="sqlinjection.png" alt="SQL Injection" class="card-img">
+        <div class="card-content">
+          <h3>SQL Injection</h3>
+          <p>SQL Injection is a technique used by attackers to insert malicious SQL queries into input fields, potentially gaining unauthorized access to databases. See how this works in action.</p>
+          <a href="sqlinjection.html">Try SQL Injection</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="xss.png" alt="Cross-Site Scripting" class="card-img">
+        <div class="card-content">
+          <h3>Cross-Site Scripting (XSS)</h3>
+          <p>Cross-Site Scripting attacks inject malicious scripts into web pages to exploit vulnerabilities. Learn how attackers steal cookies or session data using this technique.</p>
+          <a href="xss.html">Try XSS Attack</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="DOS.png" alt="Denial of Service" class="card-img">
+        <div class="card-content">
+          <h3>Denial of Service (DoS)</h3>
+          <p>Denial of Service attacks overwhelm a server with excessive traffic, making it unavailable to legitimate users. Discover how attackers flood a system with requests.</p>
+          <a href="DOS.html">Try DoS Attack</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

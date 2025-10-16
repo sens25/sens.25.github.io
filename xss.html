@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XSS Simulation</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #f7f7f7, #e6e6e6);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+      text-align: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 400px;
+      background-color: #ffffff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #e74c3c;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    /* Form Styles */
+    .xss-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .xss-form input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .xss-form input:focus {
+      outline: none;
+      border-color: #e74c3c;
+    }
+
+    .xss-form button {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background-color: #e74c3c;
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .xss-form button:hover {
+      background-color: #c0392b;
+    }
+
+    /* Output Box */
+    .output-box {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f1c40f;
+      color: white;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    /* Alert */
+    .alert {
+      display: none;
+      margin-top: 20px;
+      background-color: #e74c3c;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Info Card */
+    .info-card {
+      width: 90%;
+      max-width: 400px;
+      background-color: #3498db;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: left;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .info-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    /* Button */
+    .home-btn {
+      padding: 12px 25px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .home-btn:hover {
+      background-color: #2980b9;
+      transform: scale(1.05);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container,
+      .info-card {
+        width: 95%;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      .xss-form input,
+      .xss-form button {
+        font-size: 1rem;
+        padding: 10px;
+      }
+
+      .info-card {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      .home-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>XSS Simulation</h1>
+    <p>Enter text in the field below and click "Submit" to simulate XSS.</p>
+
+    <!-- XSS Form -->
+    <form class="xss-form" onsubmit="simulateXSS(event)">
+      <input type="text" id="userInput" placeholder="Type here..." required>
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Home Button -->
+    <br>
+    <button class="home-btn" onclick="window.location.href='simulated-attacks.html';">Go to Home</button>
+
+    <!-- Output Messages -->
+    <div id="output" class="output-box"></div>
+    <div id="alert" class="alert">Warning: XSS Detected! Your input contains malicious code.</div>
+  </div>
+
+  <!-- Explanation Card -->
+  <div class="info-card">
+    <h4>What is Cross-Site Scripting (XSS)?</h4>
+    <p>Cross-Site Scripting (XSS) is a security vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users. This can be used to steal cookies, session tokens, or other sensitive information.</p>
+    <p><strong>Example:</strong> Enter <code>&lt;script&gt;alert('XSS!')&lt;/script&gt;</code> in the input field to trigger the vulnerability.</p>
+    <p>To prevent XSS, always sanitize and validate user input!</p>
+  </div>
+
+  <script>
+    // Simulate XSS Vulnerability
+    function simulateXSS(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Get user input
+      const userInput = document.getElementById("userInput").value;
+      const outputBox = document.getElementById("output");
+
+      // Display user input without sanitization (vulnerable to XSS)
+      outputBox.style.display = "block";
+      outputBox.innerHTML = `<p>${userInput}</p>`;
+
+      // Simulate XSS detection
+      if (userInput.includes("<script>")) {
+        document.getElementById("alert").style.display = "block";
+      } else {
+        alert("Input processed successfully (simulated)!");
+      }
+    }
+  </script>
+
+</body>
+</html>

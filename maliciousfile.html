@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Malicious File Downloader Simulation</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background-color: #333;
+      color: #fff;
+      padding: 3rem;
+      width: 80%;
+      max-width: 900px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #f39c12;
+    }
+
+    .download-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .download-btn {
+      background-color: #2980b9;
+      padding: 15px;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .download-btn:hover {
+      background-color: #3498db;
+    }
+
+    .download-progress {
+      margin-top: 1rem;
+      display: none;
+      background-color: #2ecc71;
+      height: 5px;
+      width: 100%;
+      border-radius: 3px;
+      transition: width 2s;
+    }
+
+    .download-message {
+      margin-top: 1rem;
+      display: none;
+      background-color: #34495e;
+      padding: 10px;
+      font-size: 1.1rem;
+      color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .explanation-card {
+      background-color: #16a085;
+      color: white;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      text-align: left;
+    }
+
+    .explanation-card h4 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .explanation-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Button styles for Home and Refresh */
+    .home-btn, .refresh-btn {
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      background-color: #16a085;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1rem;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .home-btn:hover, .refresh-btn:hover {
+      background-color: #1abc9c;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Exclusive Content Download</h1>
+
+    <!-- Download Options -->
+    <div class="download-btns">
+      <button class="download-btn" onclick="startDownload('Exclusive Ebook')">Download Exclusive Ebook</button>
+      <button class="download-btn" onclick="startDownload('Premium Template')">Download Premium Template</button>
+      <button class="download-btn" onclick="startDownload('Latest Software')">Download Latest Software</button>
+    </div>
+
+    <!-- Download Progress Bar -->
+    <div id="downloadProgress" class="download-progress"></div>
+
+    <!-- Download Message -->
+    <div id="downloadMessage" class="download-message">Downloading... Please wait...</div>
+
+    <!-- Explanation Card -->
+    <div class="explanation-card">
+      <h4>Why You Should Be Cautious About Downloads</h4>
+      <p>Clicking on links to download files may seem harmless, but some of these files might contain harmful malware or viruses. It's crucial to verify the source of downloads before clicking. Be cautious with files that seem too good to be true or come from untrusted sources. Always keep your antivirus software updated to protect yourself from malicious files.</p>
+    </div>
+
+    <!-- Home and Refresh Buttons -->
+    <button class="home-btn" onclick="window.location.href = 'try-now.html';">Go to Home</button>
+    <button class="refresh-btn" onclick="refreshPage()">Refresh</button>
+  </div>
+
+  <script>
+    function startDownload(fileName) {
+      // Simulate a smooth download process
+      document.getElementById('downloadProgress').style.display = 'block';
+      document.getElementById('downloadMessage').style.display = 'block';
+
+      setTimeout(function() {
+        document.getElementById('downloadProgress').style.width = '100%';
+
+        // After download, show a warning about the downloaded file
+        setTimeout(function() {
+          alert("Warning: You have downloaded a file titled: '" + fileName + "'\nIt might be harmful. Be cautious about downloading files from unverified sources.");
+          document.getElementById('downloadMessage').style.display = 'none';
+        }, 1000);
+      }, 500);  // Simulated download time (500ms)
+    }
+
+    // Refresh page
+    function refreshPage() {
+      location.reload();
+    }
+  </script>
+
+</body>
+</html>

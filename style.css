@@ -1,0 +1,220 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif; /* Clean, generic font */
+    background-color: #f8f9fa; /* Light neutral background */
+    color: #333333; /* Dark gray text for readability */
+    line-height: 1.6;
+  }
+  
+  /* Navbar Styling */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff; /* Clean white background */
+    color: #333333;
+    padding: 10px 20px;
+    border-bottom: 2px solid #e9ecef;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo i {
+    margin-right: 10px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin: 0 15px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 1.1rem;
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: #6c757d; /* Muted gray on hover */
+    transform: scale(1.05); /* Subtle grow effect on hover */
+  }
+  
+  /* Welcome Section */
+  .welcome {
+    text-align: center;
+    padding: 50px 20px;
+    background: #ffffff;
+  }
+  
+  .welcome h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333333; /* Dark gray for headings */
+  }
+  
+  .welcome p {
+    font-size: 1.2rem;
+    color: #6c757d; /* Muted gray for paragraph text */
+  }
+  
+  /* About Section */
+  #about {
+    text-align: center;
+    padding: 40px 20px;
+    background: #f8f9fa;
+  }
+  
+  #about h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333333; /* Dark gray for headings */
+  }
+  
+  #about p {
+    font-size: 1.1rem;
+    color: #6c757d; /* Muted gray for paragraph text */
+  }
+  
+  .about-image {
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Cards Section */
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px 20px;
+    background: #ffffff;
+  }
+  
+  .card {
+    background: #ffffff;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15); /* Subtle shadow on hover */
+  }
+  
+  .card img {
+    width: 120px; /* Uniform size for all card images */
+    height: 120px; /* Uniform size for all card images */
+    margin: 0 auto 15px; /* Center image */
+    border-radius: 50%;
+    border: 2px solid #e9ecef;
+  }
+  
+  .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333333; /* Dark gray for heading */
+  }
+  
+  .card p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #6c757d; /* Muted gray for paragraph text */
+  }
+  
+  .card a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 1.1rem;
+    border: 2px solid #6c757d;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    align-self: center; /* Ensures button is centered */
+  }
+  
+  .card a:hover {
+    background-color: #6c757d;
+    color: #ffffff;
+    transform: translateY(-2px); /* Slight lift effect */
+  }
+  
+  /* Footer Section */
+  footer {
+    background: #f8f9fa;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #e9ecef;
+  }
+  
+  footer p {
+    color: #6c757d;
+    font-size: 1rem;
+  }
+  
+  footer a {
+    color: #6c757d;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+  }
+  
+  footer a:hover {
+    color: #333333;
+  }
+  
+  footer i {
+    margin-right: 5px;
+    color: #6c757d;
+  }
+  
+  /* Icon Placeholder Styles */
+  .icon-placeholder {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #6c757d;
+    border-radius: 3px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  
+  .icon-placeholder.small {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+  }
+  
+  .logo .icon-placeholder {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+  

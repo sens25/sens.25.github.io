@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake Form Simulation</title>
+  <style>
+    /* General body styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://source.unsplash.com/1600x900/?technology');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* Align at the top */
+      text-align: center;
+      padding-top: 50px; /* Add padding to push content down */
+    }
+
+    /* Container holding all content */
+    .container {
+      background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+      padding: 3rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+      width: 80%;
+      max-width: 900px;
+      margin-top: 30px; /* Move the content slightly down */
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #f39c12;
+    }
+
+    h3 {
+      color: #000;
+      margin-bottom: 1rem;
+    }
+
+    /* Article section styling */
+    .article-card {
+      background-color: #34495e;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      margin-bottom: 2rem;
+    }
+
+    .article-card p {
+      font-size: 1.1rem;
+      color: #bdc3c7;
+      line-height: 1.6;
+    }
+
+    /* Fake form styling */
+    .fake-form {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      margin-top: 2rem;
+      max-width: 500px;
+      margin: 2rem auto;
+    }
+
+    .fake-form input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      font-size: 1.1rem;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      transition: 0.3s;
+    }
+
+    .fake-form input:focus {
+      border-color: #3498db;
+      outline: none;
+    }
+
+    .fake-form button {
+      width: 100%;
+      padding: 14px;
+      font-size: 1.2rem;
+      background-color: #2980b9;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .fake-form button:hover {
+      background-color: #3498db;
+    }
+
+    /* Hidden data display styling */
+    pre {
+      background-color: #f4f6f7;
+      padding: 1rem;
+      border-radius: 5px;
+      margin: 1.5rem auto;
+      width: 80%;
+      font-size: 1.1rem;
+      color: #333;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      display: none;
+    }
+
+    /* Explanation card styling */
+    .explanation-card {
+      background-color: #1abc9c;
+      color: white;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      text-align: left;
+    }
+
+    .explanation-card h4 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .explanation-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Home and Refresh button styling */
+    .home-btn, .refresh-btn {
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      background-color: #16a085;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .home-btn:hover, .refresh-btn:hover {
+      background-color: #1abc9c;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Fake Form Simulation</h1>
+
+    <!-- Article Section simulating a website -->
+    <div class="article-card">
+      <h3>Important Article</h3>
+      <p>
+        Be aware! Fake websites often mimic real ones, tricking users into submitting personal information.
+        Attackers use these forms to steal sensitive data like passwords, emails, and other personal information.
+        Below is a fake form, designed to show how attackers collect data through seemingly legitimate means.
+      </p>
+    </div>
+
+    <!-- Fake Form -->
+    <div class="fake-form">
+      <h3>Fill in your details:</h3>
+      <input type="text" id="name" placeholder="Your Name" />
+      <input type="email" id="email" placeholder="Your Email" />
+      <input type="text" id="address" placeholder="Your Address" />
+      <button id="submitBtn">Submit</button>
+    </div>
+
+    <!-- Display recorded data -->
+    <pre id="formData">No data recorded yet.</pre>
+
+    <!-- Explanation of Fake Form -->
+    <div class="explanation-card">
+      <h4>What is a Fake Form?</h4>
+      <p>Fake forms are used by attackers to deceive users into providing personal information. They appear legitimate but are designed to steal sensitive data. In this simulation, the data you enter is being recorded and displayed below, showing how attackers might collect your information without your consent.</p>
+    </div>
+
+    <!-- Buttons to go back to Home and Refresh the Form -->
+    <button class="home-btn" onclick="window.location.href = 'try-now.html';">Go to Home</button>
+    <button class="refresh-btn" onclick="refreshForm()">Refresh</button>
+  </div>
+
+  <script>
+    // JavaScript to handle form submission and display recorded data
+    document.getElementById('submitBtn').addEventListener('click', function() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const address = document.getElementById('address').value;
+
+      // Create the data to display
+      const formData = `Name: ${name}\nEmail: ${email}\nAddress: ${address}`;
+
+      // Show recorded data in the pre tag
+      const dataDisplay = document.getElementById('formData');
+      dataDisplay.textContent = formData;
+      dataDisplay.style.display = 'block';  // Make the data display visible
+    });
+
+    // Function to refresh the form and clear recorded data
+    function refreshForm() {
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('address').value = '';
+      document.getElementById('formData').style.display = 'none';
+      document.getElementById('formData').textContent = 'No data recorded yet.';
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoS Attack Simulation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f7f7f7, #e6e6e6);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+      text-align: center;
+    }
+
+    .main-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    .container, .info-card {
+      width: 100%;
+      max-width: 500px;
+      background-color: #ffffff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: left;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      color: #e74c3c;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      margin-top: 15px;
+    }
+
+    .btn:hover {
+      background-color: #2980b9;
+      transform: scale(1.05);
+    }
+
+    .alert {
+      margin-top: 20px;
+      background-color: #e74c3c;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      display: none;
+    }
+
+    .log {
+      margin-top: 20px;
+      max-height: 150px;
+      overflow-y: auto;
+      padding: 10px;
+      background-color: #f1f1f1;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    .log span {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .info-card {
+      background-color: #f7f9fc;
+      border: 1px solid #dce7f3;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      color: #34495e;
+    }
+
+    .info-card h2 {
+      color: #3498db;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .info-card ul {
+      margin-left: 20px;
+    }
+
+    .info-card li {
+      margin-bottom: 10px;
+    }
+
+    .home-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #2ecc71;
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .home-btn:hover {
+      background-color: #27ae60;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-container">
+    <!-- Simulation Card -->
+    <div class="container">
+      <h1>DoS Attack Simulation</h1>
+      <p>Click the button below to simulate a DoS attack by flooding the server with repetitive requests.</p>
+      
+      <button class="btn" onclick="simulateDoS()">Start Attack</button>
+      <button class="btn" onclick="stopDoS()" style="margin-left: 10px;">Stop Attack</button>
+
+      <div class="alert" id="alert">Warning: DoS attack in progress! High server load detected.</div>
+
+      <div class="log" id="log"></div>
+    </div>
+
+    <!-- Info Card -->
+    <div class="info-card">
+      <h2>What is a DoS Attack?</h2>
+      <p>A Denial of Service (DoS) attack aims to disrupt the normal functioning of a website or server by overwhelming it with a flood of requests, rendering it unavailable to legitimate users.</p>
+      <h3>Working of This Simulation:</h3>
+      <ul>
+        <li><b>Step 1:</b> When you click "Start Attack," a script repeatedly sends simulated requests to the server using an infinite loop (setInterval).</li>
+        <li><b>Step 2:</b> Each request is logged in real-time in the "Log" section, demonstrating the increasing load.</li>
+        <li><b>Step 3:</b> A warning message appears, indicating high server load as the attack progresses.</li>
+        <li><b>Step 4:</b> Clicking "Stop Attack" halts the simulation, mimicking the mitigation of a DoS attack.</li>
+      </ul>
+      <h3>Real-World Implications:</h3>
+      <p>In real-world scenarios, DoS attacks are often mitigated using rate-limiting, traffic filtering, and distributed systems to handle unexpected surges in requests.</p>
+    </div>
+  </div>
+
+  <a href="simulated-attacks.html" class="home-btn">Go Home</a>
+
+  <script>
+    let intervalId; // To manage the attack simulation interval
+    let requestCount = 0; // Counter to track the number of requests
+    const logElement = document.getElementById("log");
+    const alertElement = document.getElementById("alert");
+
+    // Function to simulate DoS attack
+    function simulateDoS() {
+      if (intervalId) {
+        alert("Attack already in progress!");
+        return;
+      }
+
+      alertElement.style.display = "block"; // Show the warning message
+
+      // Simulate sending repetitive requests
+      intervalId = setInterval(() => {
+        requestCount++;
+        const requestTime = new Date().toLocaleTimeString();
+        logElement.innerHTML += `<span>Request ${requestCount} sent at ${requestTime}</span>`;
+
+        // Mimic high server load
+        if (requestCount % 50 === 0) {
+          logElement.innerHTML += `<span style="color: red;">Server load increasing!</span>`;
+        }
+
+        // Keep log scrollable
+        logElement.scrollTop = logElement.scrollHeight;
+      }, 100); // Sending requests every 100ms
+    }
+
+    // Function to stop the attack
+    function stopDoS() {
+      if (!intervalId) {
+        alert("No attack in progress to stop!");
+        return;
+      }
+
+      clearInterval(intervalId); // Stop the repetitive requests
+      intervalId = null;
+      alertElement.style.display = "none"; // Hide the warning message
+      logElement.innerHTML += `<span style="color: green;">DoS attack stopped at ${new Date().toLocaleTimeString()}</span>`;
+    }
+  </script>
+
+</body>
+</html>
