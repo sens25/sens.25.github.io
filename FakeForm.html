@@ -4,198 +4,242 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fake Form Simulation</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    /* General body styling */
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-image: url('https://source.unsplash.com/1600x900/?technology');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: #fff;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start; /* Align at the top */
-      text-align: center;
-      padding-top: 50px; /* Add padding to push content down */
-    }
-
-    /* Container holding all content */
-    .container {
-      background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
-      padding: 3rem;
-      border-radius: 10px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-      width: 80%;
+    /* FakeForm specific styles */
+    .fakeform-container {
       max-width: 900px;
-      margin-top: 30px; /* Move the content slightly down */
+      margin: 40px auto;
+      padding: 40px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(0, 212, 255, 0.3);
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0, 212, 255, 0.2);
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #f39c12;
+    .fakeform-container h1 {
+      color: #00d4ff;
+      text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+      margin-bottom: 30px;
+      text-align: center;
     }
 
-    h3 {
-      color: #000;
-      margin-bottom: 1rem;
-    }
-
-    /* Article section styling */
     .article-card {
-      background-color: #34495e;
-      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 212, 255, 0.2);
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      margin-bottom: 2rem;
+      padding: 25px;
+      margin: 20px 0;
+      box-shadow: 0 4px 15px rgba(0, 212, 255, 0.1);
+    }
+
+    .article-card h3 {
+      color: #00d4ff;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
     }
 
     .article-card p {
-      font-size: 1.1rem;
-      color: #bdc3c7;
+      color: #b0b0b0;
       line-height: 1.6;
+      margin-bottom: 15px;
     }
 
-    /* Fake form styling */
     .fake-form {
-      background-color: #fff;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      margin-top: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      padding: 30px;
+      border-radius: 15px;
+      border: 2px solid rgba(0, 212, 255, 0.3);
+      margin: 30px auto;
       max-width: 500px;
-      margin: 2rem auto;
+      box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+    }
+
+    .fake-form h3 {
+      color: #00d4ff;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
     }
 
     .fake-form input {
       width: 100%;
-      padding: 12px;
-      margin: 10px 0;
+      padding: 15px;
+      margin: 15px 0;
       font-size: 1.1rem;
-      border: 2px solid #ccc;
-      border-radius: 5px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 2px solid rgba(0, 212, 255, 0.3);
+      border-radius: 8px;
+      color: #e0e0e0;
       box-sizing: border-box;
-      transition: 0.3s;
+      transition: all 0.3s ease;
     }
 
     .fake-form input:focus {
-      border-color: #3498db;
       outline: none;
+      border-color: #00d4ff;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+    }
+
+    .fake-form input::placeholder {
+      color: #888;
     }
 
     .fake-form button {
       width: 100%;
-      padding: 14px;
+      padding: 15px;
       font-size: 1.2rem;
-      background-color: #2980b9;
-      color: #fff;
+      background: linear-gradient(45deg, #00d4ff, #0099cc);
+      color: #000;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: all 0.3s ease;
+      font-weight: bold;
     }
 
     .fake-form button:hover {
-      background-color: #3498db;
+      background: linear-gradient(45deg, #0099cc, #00d4ff);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
     }
 
-    /* Hidden data display styling */
-    pre {
-      background-color: #f4f6f7;
-      padding: 1rem;
-      border-radius: 5px;
-      margin: 1.5rem auto;
-      width: 80%;
-      font-size: 1.1rem;
-      color: #333;
+    .form-data-display {
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid rgba(0, 212, 255, 0.3);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      color: #e0e0e0;
+      font-family: 'Courier New', monospace;
       white-space: pre-wrap;
       word-wrap: break-word;
       display: none;
+      box-shadow: 0 4px 15px rgba(0, 212, 255, 0.1);
+      max-width: 80%;
     }
 
-    /* Explanation card styling */
+    .form-data-display.show {
+      display: block;
+    }
+
     .explanation-card {
-      background-color: #1abc9c;
-      color: white;
-      padding: 1.5rem;
-      margin-top: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      background: rgba(0, 212, 255, 0.1);
+      border: 2px solid rgba(0, 212, 255, 0.3);
+      color: #e0e0e0;
+      padding: 25px;
+      margin: 30px 0;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
       text-align: left;
     }
 
     .explanation-card h4 {
+      color: #00d4ff;
       font-size: 1.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
     }
 
     .explanation-card p {
-      font-size: 1rem;
+      color: #b0b0b0;
+      font-size: 1.1rem;
       line-height: 1.6;
     }
 
-    /* Home and Refresh button styling */
+    .fakeform-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+
     .home-btn, .refresh-btn {
-      padding: 12px 20px;
+      padding: 12px 25px;
       font-size: 1.1rem;
-      background-color: #16a085;
-      color: white;
-      border: none;
-      border-radius: 5px;
+      background: rgba(0, 212, 255, 0.1);
+      color: #00d4ff;
+      border: 2px solid #00d4ff;
+      border-radius: 25px;
       cursor: pointer;
-      margin-top: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .home-btn:hover, .refresh-btn:hover {
-      background-color: #1abc9c;
-      transform: scale(1.05);
+      background: #00d4ff;
+      color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
     }
   </style>
 </head>
 <body>
+  <header>
+    <nav>
+      <div class="logo">
+        <i class="fas fa-shield-alt"></i> Cybersecurity simulations and notes
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html#about"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="index.html#cards"><i class="fas fa-tasks"></i> Simulations</a></li>
+        <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </nav>
+    <div class="welcome">
+        <h1><i class="fas fa-file-alt"></i> Fake Form Simulation</h1>
+        <p>
+          <i class="fas fa-bug"></i> Experience how fake forms can capture and steal personal information in this interactive simulation.
+        </p>
+      </div>      
+  </header>
 
-  <div class="container">
-    <h1><i class="fas fa-file-alt"></i> Fake Form Simulation</h1>
+  <main>
+    <div class="fakeform-container">
+      <!-- Article Section simulating a website -->
+      <div class="article-card">
+        <h3><i class="fas fa-newspaper"></i> Important Article</h3>
+        <p>
+          Be aware! Fake websites often mimic real ones, tricking users into submitting personal information.
+          Attackers use these forms to steal sensitive data like passwords, emails, and other personal information.
+          Below is a fake form, designed to show how attackers collect data through seemingly legitimate means.
+        </p>
+      </div>
 
-    <!-- Article Section simulating a website -->
-    <div class="article-card">
-      <h3><i class="fas fa-newspaper"></i> Important Article</h3>
-      <p>
-        Be aware! Fake websites often mimic real ones, tricking users into submitting personal information.
-        Attackers use these forms to steal sensitive data like passwords, emails, and other personal information.
-        Below is a fake form, designed to show how attackers collect data through seemingly legitimate means.
-      </p>
+      <!-- Fake Form -->
+      <div class="fake-form">
+        <h3><i class="fas fa-edit"></i> Fill in your details:</h3>
+        <input type="text" id="name" placeholder="Your Name" />
+        <input type="email" id="email" placeholder="Your Email" />
+        <input type="text" id="address" placeholder="Your Address" />
+        <button id="submitBtn"><i class="fas fa-paper-plane"></i> Submit</button>
+      </div>
+
+      <!-- Display recorded data -->
+      <div id="formData" class="form-data-display">No data recorded yet.</div>
+
+      <!-- Explanation of Fake Form -->
+      <div class="explanation-card">
+        <h4><i class="fas fa-question-circle"></i> What is a Fake Form?</h4>
+        <p>Fake forms are used by attackers to deceive users into providing personal information. They appear legitimate but are designed to steal sensitive data. In this simulation, the data you enter is being recorded and displayed below, showing how attackers might collect your information without your consent.</p>
+      </div>
+
+      <!-- Buttons to go back to Home and Refresh the Form -->
+      <div class="fakeform-buttons">
+        <a href="try-now.html" class="home-btn"><i class="fas fa-home"></i> Go to Home</a>
+        <button class="refresh-btn" onclick="refreshForm()"><i class="fas fa-redo"></i> Refresh</button>
+      </div>
     </div>
+  </main>
 
-    <!-- Fake Form -->
-    <div class="fake-form">
-      <h3><i class="fas fa-edit"></i> Fill in your details:</h3>
-      <input type="text" id="name" placeholder="Your Name" />
-      <input type="email" id="email" placeholder="Your Email" />
-      <input type="text" id="address" placeholder="Your Address" />
-      <button id="submitBtn"><i class="fas fa-paper-plane"></i> Submit</button>
-    </div>
-
-    <!-- Display recorded data -->
-    <pre id="formData">No data recorded yet.</pre>
-
-    <!-- Explanation of Fake Form -->
-    <div class="explanation-card">
-      <h4><i class="fas fa-question-circle"></i> What is a Fake Form?</h4>
-      <p>Fake forms are used by attackers to deceive users into providing personal information. They appear legitimate but are designed to steal sensitive data. In this simulation, the data you enter is being recorded and displayed below, showing how attackers might collect your information without your consent.</p>
-    </div>
-
-    <!-- Buttons to go back to Home and Refresh the Form -->
-    <button class="home-btn" onclick="window.location.href = 'try-now.html';"><i class="fas fa-home"></i> Go to Home</button>
-    <button class="refresh-btn" onclick="refreshForm()"><i class="fas fa-redo"></i> Refresh</button>
-  </div>
+  <footer id="contact">
+    <p>This is made by ICRC Delegation for Cyberspace</p>
+  </footer>
 
   <script>
     // JavaScript to handle form submission and display recorded data
@@ -207,10 +251,10 @@
       // Create the data to display
       const formData = `Name: ${name}\nEmail: ${email}\nAddress: ${address}`;
 
-      // Show recorded data in the pre tag
+      // Show recorded data in the display element
       const dataDisplay = document.getElementById('formData');
       dataDisplay.textContent = formData;
-      dataDisplay.style.display = 'block';  // Make the data display visible
+      dataDisplay.classList.add('show');  // Make the data display visible using CSS class
     });
 
     // Function to refresh the form and clear recorded data
@@ -218,7 +262,7 @@
       document.getElementById('name').value = '';
       document.getElementById('email').value = '';
       document.getElementById('address').value = '';
-      document.getElementById('formData').style.display = 'none';
+      document.getElementById('formData').classList.remove('show');
       document.getElementById('formData').textContent = 'No data recorded yet.';
     }
   </script>
