@@ -181,30 +181,30 @@
 <body>
 
   <div class="container">
-    <h1>Phishing Attack Simulation</h1>
+    <h1><i class="fas fa-fish"></i> Phishing Attack Simulation</h1>
 
-    <p>Enter your username and password to proceed</p>
+    <p><i class="fas fa-user-lock"></i> Enter your username and password to proceed</p>
 
     <form class="login-form" onsubmit="handleLogin(event)">
       <input type="text" id="username" placeholder="Username" required>
       <input type="password" id="password" placeholder="Password" required>
-      <button type="submit">Sign In</button>
+      <button type="submit"><i class="fas fa-sign-in-alt"></i> Sign In</button>
     </form>
-    <button class="home-btn" onclick="window.location.href = 'simulated-attacks.html';">Go to Home</button>
+    <button class="home-btn" onclick="window.location.href = 'simulated-attacks.html';"><i class="fas fa-home"></i> Go to Home</button>
 
-    <div id="alertMessage" class="alert">Warning: This was a phishing attempt. Your data has been recorded!</div>
+    <div id="alertMessage" class="alert"><i class="fas fa-exclamation-triangle"></i> Warning: This was a phishing attempt. Your data has been recorded!</div>
 
     <div id="credentials" class="credential-box">
-      <p>Recorded Credentials:</p>
-      <p><strong>Username:</strong> <span id="user"></span></p>
-      <p><strong>Password:</strong> <span id="pass"></span></p>
+      <p><i class="fas fa-key"></i> Recorded Credentials:</p>
+      <p><strong><i class="fas fa-user"></i> Username:</strong> <span id="user"></span></p>
+      <p><strong><i class="fas fa-lock"></i> Password:</strong> <span id="pass"></span></p>
     </div>
 
   </div>
 
   <!-- Explanation Card -->
   <div class="explanation-card">
-    <h4>What is a Phishing Attack?</h4>
+    <h4><i class="fas fa-question-circle"></i> What is a Phishing Attack?</h4>
     <p>Phishing attacks trick users into revealing sensitive information by pretending to be a trustworthy source. In this simulation, you interacted with a fake login form. The attacker collects sensitive data like usernames and passwords when users enter their details into fake forms.</p>
     <p><strong>Always be cautious about where you enter your credentials!</strong> Verify that the website is legitimate and secure before entering any sensitive information.</p>
   </div>

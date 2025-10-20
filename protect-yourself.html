@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protect Yourself - Best Practices for Online Safety</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      position: relative; /* Ensures absolute positioning works properly */
+    }
+
+    /* Header Styles */
+    header {
+      text-align: center;
+      background-color: #004aad;
+      color: #fff;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    /* Home Button - Positioned on Right */
+    .home-btn {
+      position: fixed; /* Fixes the button in place */
+      top: 20px;
+      right: 20px;
+      background-color: #2980b9;
+      color: #fff;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .home-btn:hover {
+      background-color: #3498db;
+      transform: scale(1.1);
+    }
+
+    /* Main Content Styles */
+    main {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .resources {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    article {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    article:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    article h2 {
+      font-size: 1.5rem;
+      color: #004aad;
+      margin-bottom: 0.5rem;
+    }
+
+    article p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    article ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+    }
+
+    article ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Footer Styles */
+    footer {
+      text-align: center;
+      background-color: #004aad;
+      color: #fff;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    footer p {
+      font-size: 1rem;
+    }
+
+    /* Hover Animations for Articles */
+    article:hover {
+      background-color: #ecf0f1;
+      transform: translateY(-10px);
+    }
+  </style>
+</head>
+<body>
+  <button class="home-btn" onclick="window.location.href = '/index.html';">Go to Home</button>
+  
+  <header>
+    <h1>Protect Yourself Online</h1>
+    <p>Learn best practices to stay safe and secure online from potential threats.</p>
+  </header>
+  
+  <main>
+    <section class="resources">
+      <article>
+        <h2>Use Strong Passwords</h2>
+        <p>
+          Strong passwords are essential for protecting your accounts and personal information online.
+        </p>
+        <ul>
+          <li>Use a combination of uppercase and lowercase letters, numbers, and special characters.</li>
+          <li>Do not use easily guessable passwords, such as your name or birthdate.</li>
+          <li>Consider using a password manager to generate and store unique passwords for each account.</li>
+        </ul>
+      </article>
+      <article>
+        <h2>Enable Two-Factor Authentication</h2>
+        <p>
+          Two-factor authentication (2FA) adds an extra layer of security by requiring a second form of verification.
+        </p>
+        <ul>
+          <li>Enable 2FA on all important accounts, such as email, banking, and social media.</li>
+          <li>Use an authenticator app or text message to receive the second verification code.</li>
+          <li>Never share your 2FA code with anyone.</li>
+        </ul>
+      </article>
+      <article>
+        <h2>Be Cautious of Phishing Scams</h2>
+        <p>
+          Phishing attacks attempt to trick you into revealing sensitive information by pretending to be trustworthy entities.
+        </p>
+        <ul>
+          <li>Never click on suspicious links in emails or text messages.</li>
+          <li>Verify the legitimacy of emails by checking the sender's address.</li>
+          <li>Do not download attachments from unknown or untrusted sources.</li>
+        </ul>
+      </article>
+      <article>
+        <h2>Keep Your Software Updated</h2>
+        <p>
+          Regular software updates fix security vulnerabilities and protect your devices from malicious attacks.
+        </p>
+        <ul>
+          <li>Enable automatic updates on your operating system and applications.</li>
+          <li>Regularly check for updates on your devices, including phones and tablets.</li>
+          <li>Install updates as soon as they are released to ensure your system is protected.</li>
+        </ul>
+      </article>
+      <article>
+        <h2>Use Secure Wi-Fi Networks</h2>
+        <p>
+          Public Wi-Fi networks can be a target for hackers. Make sure to secure your connection.
+        </p>
+        <ul>
+          <li>Use a Virtual Private Network (VPN) to encrypt your internet traffic when using public Wi-Fi.</li>
+          <li>Avoid accessing sensitive information, such as online banking, on unsecured networks.</li>
+          <li>Ensure your home Wi-Fi network is password-protected with WPA3 encryption.</li>
+        </ul>
+      </article>
+      <article>
+        <h2>Monitor Your Accounts Regularly</h2>
+        <p>
+          Regularly monitoring your accounts and credit reports can help you detect suspicious activity early.
+        </p>
+        <ul>
+          <li>Check your bank and credit card statements regularly for any unauthorized transactions.</li>
+          <li>Set up alerts for transactions and changes to your accounts.</li>
+          <li>Consider using credit monitoring services to get notified of any potential fraud or identity theft.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+  
+  <footer>
+    <p>This is made for SENS by ICRC Delegation for Cyberspace</p>
+  </footer>
+</body>
+</html>
