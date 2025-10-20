@@ -4,21 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cybersecurity Attacks</title>
-  <link rel="stylesheet" href="try-now.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <button class="home-btn" onclick="window.location.href = '/index.html';"><i class="fas fa-home"></i> Go to Home</button>
-  <main>
-    <section id="intro">
-      <div class="intro-content">
+  <header>
+    <nav>
+      <div class="logo">
+        <i class="fas fa-shield-alt"></i> Cybersecurity simulations and notes
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html#about"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="index.html#cards"><i class="fas fa-tasks"></i> Simulations</a></li>
+        <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </nav>
+    <div class="welcome">
         <h1>Explore Cybersecurity Attack Types</h1>
         <p>
-          These traps set up to simulate vulnerabilities, allowing us to understand how attackers exploit different techniques. Try out different attack simulations to learn how they work.
+          <i class="fas fa-bug"></i> These traps are set up to simulate vulnerabilities, allowing us to understand how attackers exploit different techniques. Try out different attack simulations to learn how they work.
         </p>
-      </div>
-    </section>
-
+      </div>      
+  </header>
+  <main>
     <section id="cards" class="cards-container">
       <div class="card">
         <img src="phishing.png" alt="Phishing" class="card-img">
@@ -57,5 +65,9 @@
       </div>
     </section>
   </main>
+
+  <footer id="contact">
+    <p>This is made by ICRC Delegation for Cyberspace</p>
+  </footer>
 </body>
 </html>
